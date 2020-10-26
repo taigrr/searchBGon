@@ -4,7 +4,7 @@
      "description": "Closes all Google Search tabs when clicked to free up tabs and save your sanity.",
   "short_name":"SearchBGon",
   "author": "Tai Groot",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "browser_action": {
     "default_icon": "static/icon.png"
   },
