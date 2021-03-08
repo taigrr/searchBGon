@@ -9,8 +9,8 @@ function announce_close(){
 			} else if(tabs[i].url.includes("duckduckgo.com/?q=")){
 				closeable.push(tabs[i].id)
 			}
-			chrome.tabs.remove(closeable);
 		}
+		chrome.tabs.remove(closeable);
 	});
 }
 chrome.browserAction.onClicked.addListener(function(tab){announce_close()});

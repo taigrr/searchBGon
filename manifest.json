@@ -14,7 +14,8 @@
     ]
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "<all_urls>"
   ],
   "commands":{
 	"_execute_browser_action":{
