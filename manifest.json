@@ -1,28 +1,29 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Close Search Tabs",
-     "description": "Closes all Google Search tabs when clicked to free up tabs and save your sanity.",
+  "description": "Closes all Google Search tabs when clicked to free up tabs and save your sanity.",
   "short_name":"SearchBGon",
   "author": "Tai Groot",
   "version": "3.0.1",
-  "browser_action": {
+  "action": {
     "default_icon": "static/icon.png"
   },
   "background": {
-    "scripts": [
-      "background.js"
-    ]
+    "service_worker": "background.js"
   },
   "permissions": [
-    "tabs",
-    "<all_urls>"
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.google.com/search/*",
+    "https://duckduckgo.com/*"
   ],
   "commands":{
-	"_execute_browser_action":{
-		"suggested_key":{
-			"default": "Ctrl+Shift+Z"
-		}
-	}
+    "_execute_action":{
+      "suggested_key":{
+	"default": "Ctrl+Shift+Z"
+      }
+    }
   },
   "icons": {
     "16": "static/icon-16.png",

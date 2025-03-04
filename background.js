@@ -6,11 +6,11 @@ function announce_close(){
 			console.log(tabs[i]);
 			if(tabs[i].url.includes("google.com/search?")) {	
 				closeable.push(tabs[i].id)
-			} else if(tabs[i].url.includes("duckduckgo.com/?q=")){
+			} else if(tabs[i].url.includes("duckduckgo.com/?")){
 				closeable.push(tabs[i].id)
 			}
 		}
 		chrome.tabs.remove(closeable);
 	});
 }
-chrome.browserAction.onClicked.addListener(function(tab){announce_close()});
+chrome.action.onClicked.addListener(function(){announce_close()});
