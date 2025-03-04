@@ -1,16 +1,7 @@
-function announce_close(){
-	console.log("closing all search tabs")
+chrome.action.onClicked.addListener(() => {
 	chrome.tabs.query({}, function(tabs) {
-		var closeable=[];
-		for (var i=0; i<tabs.length; ++i) {
-			console.log(tabs[i]);
-			if(tabs[i].url.includes("google.com/search?")) {	
-				closeable.push(tabs[i].id)
-			} else if(tabs[i].url.includes("duckduckgo.com/?")){
-				closeable.push(tabs[i].id)
-			}
-		}
-		chrome.tabs.remove(closeable);
+		chrome.tabs.remove(tabs.filter(tab => {
+			return tab.url.includes("google.com/search?") || tab.url.includes("duckduckgo.com/?")
+		}).map(tab => tab.id));
 	});
-}
-chrome.action.onClicked.addListener(function(){announce_close()});
+})
