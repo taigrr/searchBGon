@@ -23,43 +23,28 @@ function isSearchTab(tab) {
   return SEARCH_PATTERNS.some((pattern) => tab.url.includes(pattern));
 }
 
-function updateBadge() {
+function updateCount() {
   chrome.tabs.query({}, (tabs) => {
     const count = tabs.filter(isSearchTab).length;
-    chrome.action.setBadgeText({ text: count > 0 ? String(count) : "" });
-    chrome.action.setBadgeBackgroundColor({ color: "#e74c3c" });
+    document.getElementById("count").textContent = count;
+    const btn = document.getElementById("closeBtn");
+    btn.disabled = count === 0;
+    btn.textContent =
+      count === 0 ? "No Search Tabs" : `Close ${count} Search Tab${count === 1 ? "" : "s"}`;
   });
 }
 
-function closeSearchTabs() {
+document.getElementById("closeBtn").addEventListener("click", () => {
   chrome.tabs.query({}, (tabs) => {
     const searchTabs = tabs.filter(isSearchTab);
     if (searchTabs.length === 0) return;
-    chrome.tabs.remove(searchTabs.map((tab) => tab.id));
+    chrome.tabs.remove(
+      searchTabs.map((tab) => tab.id),
+      () => {
+        updateCount();
+      }
+    );
   });
-}
-
-// Handle keyboard shortcut
-chrome.commands.onCommand.addListener((command) => {
-  if (command === "close-search-tabs") {
-    closeSearchTabs();
-  }
 });
 
-// Update badge when tabs change
-chrome.tabs.onUpdated.addListener((_tabId, changeInfo) => {
-  if (changeInfo.url || changeInfo.status === "complete") {
-    updateBadge();
-  }
-});
-
-chrome.tabs.onRemoved.addListener(() => {
-  updateBadge();
-});
-
-chrome.tabs.onCreated.addListener(() => {
-  updateBadge();
-});
-
-// Initial badge update
-updateBadge();
+updateCount();
