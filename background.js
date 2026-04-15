@@ -9,6 +9,13 @@ const SEARCH_PATTERNS = [
   "ecosia.org/search?",
   "startpage.com/search",
   "kagi.com/search?",
+  "yandex.com/search/?",
+  "perplexity.ai/search",
+  "you.com/search?",
+  "swisscows.com/web?",
+  "search.aol.com/search",
+  "baidu.com/s?",
+  "qwant.com/?q=",
 ];
 
 function isSearchTab(tab) {

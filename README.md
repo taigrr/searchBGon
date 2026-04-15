@@ -14,6 +14,13 @@ A Chrome extension that closes all search engine tabs with one click (or `Ctrl+S
 - Ecosia
 - Startpage
 - Kagi
+- Yandex
+- Perplexity
+- You.com
+- Swisscows
+- AOL
+- Baidu
+- Qwant
 
 ## Features
 

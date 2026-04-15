@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
   "name": "Close Search Tabs",
-  "description": "Closes all Google Search tabs when clicked to free up tabs and save your sanity.",
-  "short_name":"SearchBGon",
+  "description": "Closes all search engine tabs with one click or Ctrl+Shift+Z. Supports Google, DuckDuckGo, Bing, Yahoo, Brave, Ecosia, Startpage, Kagi, and more.",
+  "short_name": "SearchBGon",
   "author": "Tai Groot",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "action": {
     "default_icon": "static/icon.png"
   },
@@ -14,14 +14,10 @@
   "permissions": [
     "tabs"
   ],
-  "host_permissions": [
-    "https://www.google.com/search/*",
-    "https://duckduckgo.com/*"
-  ],
-  "commands":{
-    "_execute_action":{
-      "suggested_key":{
-	"default": "Ctrl+Shift+Z"
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Z"
       }
     }
   },
