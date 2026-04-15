@@ -31,19 +31,12 @@ function updateBadge() {
   });
 }
 
-function closeSearchTabs() {
+chrome.action.onClicked.addListener(() => {
   chrome.tabs.query({}, (tabs) => {
     const searchTabs = tabs.filter(isSearchTab);
     if (searchTabs.length === 0) return;
     chrome.tabs.remove(searchTabs.map((tab) => tab.id));
   });
-}
-
-// Handle keyboard shortcut
-chrome.commands.onCommand.addListener((command) => {
-  if (command === "close-search-tabs") {
-    closeSearchTabs();
-  }
 });
 
 // Update badge when tabs change

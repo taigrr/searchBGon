@@ -6,8 +6,7 @@
   "author": "Tai Groot",
   "version": "3.2.0",
   "action": {
-    "default_icon": "static/icon.png",
-    "default_popup": "popup.html"
+    "default_icon": "static/icon.png"
   },
   "background": {
     "service_worker": "background.js"
@@ -16,11 +15,10 @@
     "tabs"
   ],
   "commands": {
-    "close-search-tabs": {
+    "_execute_action": {
       "suggested_key": {
         "default": "Ctrl+Shift+Z"
-      },
-      "description": "Close all search engine tabs"
+      }
     }
   },
   "icons": {
