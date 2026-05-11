@@ -16,4 +16,9 @@ jobs:
         run: python3 -c "import json; json.load(open('manifest.json'))"
 
       - name: Check JS syntax
-        run: node --check background.js
+        run: |
+          node --check background.mjs
+          node --check searchMatcher.mjs
+
+      - name: Run matcher regression tests
+        run: node search-matcher.test.mjs

@@ -1,27 +1,4 @@
-const SEARCH_PATTERNS = [
-  "google.com/search?",
-  "google.com/search#",
-  "duckduckgo.com/?q=",
-  "duckduckgo.com/?t=",
-  "bing.com/search?",
-  "search.yahoo.com/search",
-  "search.brave.com/search?",
-  "ecosia.org/search?",
-  "startpage.com/search",
-  "kagi.com/search?",
-  "yandex.com/search/?",
-  "perplexity.ai/search",
-  "you.com/search?",
-  "swisscows.com/web?",
-  "search.aol.com/search",
-  "baidu.com/s?",
-  "qwant.com/?q=",
-];
-
-function isSearchTab(tab) {
-  if (!tab.url) return false;
-  return SEARCH_PATTERNS.some((pattern) => tab.url.includes(pattern));
-}
+import { isSearchTab } from "./searchMatcher.mjs";
 
 function updateBadge() {
   chrome.tabs.query({}, (tabs) => {
@@ -39,7 +16,6 @@ chrome.action.onClicked.addListener(() => {
   });
 });
 
-// Update badge when tabs change
 chrome.tabs.onUpdated.addListener((_tabId, changeInfo) => {
   if (changeInfo.url || changeInfo.status === "complete") {
     updateBadge();
@@ -54,5 +30,4 @@ chrome.tabs.onCreated.addListener(() => {
   updateBadge();
 });
 
-// Initial badge update
 updateBadge();
