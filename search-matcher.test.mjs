@@ -3,7 +3,9 @@ import { isSearchURL } from "./searchMatcher.mjs";
 
 const positives = [
   "https://www.google.com/search?q=openclaw",
+  "https://google.co.uk/search?q=clawd",
   "https://www.google.co.uk/search?q=clawd",
+  "https://google.com.au/search?q=widget",
   "https://duckduckgo.com/?q=ai+assistant",
   "https://www.bing.com/search?q=signal",
   "https://search.yahoo.com/search?p=wallace",
@@ -22,6 +24,7 @@ const positives = [
 
 const negatives = [
   "https://www.google.com/",
+  "https://googleusercontent.com/search?q=openclaw",
   "https://news.google.com/search?q=openclaw",
   "https://duckduckgo.com/?t=h_&ia=web",
   "https://search.yahoo.com/",
