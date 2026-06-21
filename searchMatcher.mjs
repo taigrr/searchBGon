@@ -3,13 +3,14 @@ const hasParam = (url, name) => url.searchParams.has(name) && url.searchParams.g
 const endsWithAny = (value, suffixes) => suffixes.some((suffix) => value === suffix || value.endsWith(`.${suffix}`));
 
 const isGoogleSearchHost = (hostname) => {
-  if (hostname === "google.com" || hostname === "www.google.com") return true;
+  const normalizedHostname = hostname.toLowerCase();
+  if (normalizedHostname === "google.com" || normalizedHostname === "www.google.com") return true;
 
-  const googleParts = hostname.split(".");
-  if (googleParts.length < 2) return false;
+  const googleHostname = normalizedHostname.startsWith("www.")
+    ? normalizedHostname.slice(4)
+    : normalizedHostname;
 
-  const [subdomain, domain] = googleParts;
-  return subdomain === "www" && domain === "google";
+  return googleHostname.startsWith("google.") && googleHostname.length > "google.".length;
 };
 
 const SEARCH_MATCHERS = [
