@@ -54,7 +54,7 @@ const SEARCH_MATCHERS = [
   (url) => endsWithAny(url.hostname, ["ecosia.org"]) && url.pathname === "/search" && hasParam(url, "q"),
   (url) => endsWithAny(url.hostname, ["startpage.com"]) && url.pathname.endsWith("/search") && hasParam(url, "query"),
   (url) => url.hostname === "kagi.com" && url.pathname === "/search" && hasParam(url, "q"),
-  (url) => endsWithAny(url.hostname, ["yandex.com"]) && url.pathname.startsWith("/search") && hasParam(url, "text"),
+  (url) => endsWithAny(url.hostname, ["yandex.com", "yandex.ru", "yandex.com.tr", "ya.ru"]) && url.pathname.startsWith("/search") && hasParam(url, "text"),
   (url) => endsWithAny(url.hostname, ["perplexity.ai"]) && (url.pathname.startsWith("/search/") || (url.pathname === "/search" && hasParam(url, "q"))),
   (url) => url.hostname === "you.com" && url.pathname === "/search" && hasParam(url, "q"),
   (url) => endsWithAny(url.hostname, ["swisscows.com"]) && url.pathname === "/web" && hasParam(url, "query"),
