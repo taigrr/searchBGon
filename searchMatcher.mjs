@@ -13,9 +13,19 @@ const isGoogleSearchHost = (hostname) => {
   return googleHostname.startsWith("google.") && googleHostname.length > "google.".length;
 };
 
+const isDuckDuckGoSearchURL = (url) => {
+  if (url.hostname === "duckduckgo.com" && url.pathname === "/" && hasParam(url, "q")) return true;
+
+  const duckDuckGoAlternatePaths = {
+    "html.duckduckgo.com": "/html/",
+    "lite.duckduckgo.com": "/lite/",
+  };
+  return duckDuckGoAlternatePaths[url.hostname] === url.pathname && hasParam(url, "q");
+};
+
 const SEARCH_MATCHERS = [
   (url) => isGoogleSearchHost(url.hostname) && url.pathname === "/search" && hasParam(url, "q"),
-  (url) => url.hostname === "duckduckgo.com" && url.pathname === "/" && hasParam(url, "q"),
+  isDuckDuckGoSearchURL,
   (url) => endsWithAny(url.hostname, ["bing.com"]) && url.pathname === "/search" && hasParam(url, "q"),
   (url) => url.hostname === "search.yahoo.com" && url.pathname === "/search" && hasParam(url, "p"),
   (url) => url.hostname === "search.brave.com" && url.pathname === "/search" && hasParam(url, "q"),
