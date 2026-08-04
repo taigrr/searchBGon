@@ -2,6 +2,8 @@ const hasParam = (url, name) => url.searchParams.has(name) && url.searchParams.g
 
 const endsWithAny = (value, suffixes) => suffixes.some((suffix) => value === suffix || value.endsWith(`.${suffix}`));
 
+const isWebURL = (url) => url.protocol === "http:" || url.protocol === "https:";
+
 const GOOGLE_TLDS = new Set([
   "com", "ac", "ad", "ae", "com.af", "com.ag", "al", "am", "co.ao", "com.ar",
   "as", "at", "com.au", "az", "ba", "com.bd", "be", "bf", "bg", "com.bh",
@@ -73,7 +75,7 @@ export function isSearchURL(rawURL) {
     return false;
   }
 
-  return SEARCH_MATCHERS.some((matcher) => matcher(parsedURL));
+  return isWebURL(parsedURL) && SEARCH_MATCHERS.some((matcher) => matcher(parsedURL));
 }
 
 export function isSearchTab(tab) {
