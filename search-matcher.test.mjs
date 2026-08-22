@@ -1,11 +1,12 @@
 import assert from "node:assert/strict";
-import { isSearchURL } from "./searchMatcher.mjs";
+import { isSearchTab, isSearchURL } from "./searchMatcher.mjs";
 
 const positives = [
   "https://www.google.com/search?q=openclaw",
   "https://google.co.uk/search?q=clawd",
   "https://www.google.co.uk/search?q=clawd",
   "https://google.com.au/search?q=widget",
+  "http://www.google.com/search?q=openclaw",
   "https://duckduckgo.com/?q=ai+assistant",
   "https://html.duckduckgo.com/html/?q=terminal",
   "https://lite.duckduckgo.com/lite/?q=browser",
@@ -36,6 +37,8 @@ const negatives = [
   "https://news.google.com/search?q=openclaw",
   "https://google.evil.com/search?q=openclaw",
   "https://google.internal/search?q=nope",
+  "ftp://www.google.com/search?q=openclaw",
+  "file:///search?q=openclaw",
   "https://www.perplexity.ai/search",
   "https://www.startpage.com/researchers?query=x",
   "https://duckduckgo.com/?t=h_&ia=web",
@@ -56,5 +59,10 @@ for (const url of positives) {
 for (const url of negatives) {
   assert.equal(isSearchURL(url), false, `${url} should not match`);
 }
+
+assert.equal(isSearchTab({ url: "https://www.google.com/search?q=openclaw" }), true, "search tab should match");
+assert.equal(isSearchTab({ url: "https://www.google.com/" }), false, "non-search tab should not match");
+assert.equal(isSearchTab({}), false, "tab without url should not match");
+assert.equal(isSearchTab(null), false, "missing tab should not match");
 
 console.log(`validated ${positives.length} positive and ${negatives.length} negative search URL cases`);
