@@ -4,7 +4,7 @@
   "description": "Closes all search engine tabs with one click or Ctrl+Shift+Z. Supports Google, DuckDuckGo, Bing, Yahoo, Brave, Ecosia, Startpage, Kagi, and more.",
   "short_name": "SearchBGon",
   "author": "Tai Groot",
-  "version": "3.2.0",
+  "version": "3.2.2",
   "action": {
     "default_icon": "static/icon.png"
   },
