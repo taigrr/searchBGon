@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { isSearchURL } from "./searchMatcher.mjs";
+import { isSearchTab, isSearchURL } from "./searchMatcher.mjs";
 
 const positives = [
   "https://www.google.com/search?q=openclaw",
@@ -59,5 +59,10 @@ for (const url of positives) {
 for (const url of negatives) {
   assert.equal(isSearchURL(url), false, `${url} should not match`);
 }
+
+assert.equal(isSearchTab({ url: "https://www.google.com/search?q=openclaw" }), true, "search tab should match");
+assert.equal(isSearchTab({ url: "https://www.google.com/" }), false, "non-search tab should not match");
+assert.equal(isSearchTab({}), false, "tab without url should not match");
+assert.equal(isSearchTab(null), false, "missing tab should not match");
 
 console.log(`validated ${positives.length} positive and ${negatives.length} negative search URL cases`);
