@@ -29,6 +29,10 @@ const positives = [
   "https://search.aol.com/search?q=music",
   "https://www.baidu.com/s?wd=golang",
   "https://www.qwant.com/?q=security",
+  "https://www.mojeek.com/search?q=independent",
+  "https://metager.org/?eingabe=privacy",
+  "https://search.naver.com/search.naver?query=hangul",
+  "https://search.seznam.cz/?q=prague",
 ];
 
 const negatives = [
@@ -46,6 +50,10 @@ const negatives = [
   "https://html.duckduckgo.com/?q=nope",
   "https://example.duckduckgo.com/html/?q=nope",
   "https://search.yahoo.com/",
+  "https://www.mojeek.com/?q=home",
+  "https://metager.org/meta/meta.ger3",
+  "https://www.naver.com/search.naver?query=nope",
+  "https://search.seznam.cz/obrazky?q=prague",
   "https://example.com/?redirect=google.com/search?q=nope",
   "not a url",
   "",
