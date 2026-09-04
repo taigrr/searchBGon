@@ -63,6 +63,10 @@ const SEARCH_MATCHERS = [
   (url) => url.hostname === "search.aol.com" && url.pathname.endsWith("/search") && hasParam(url, "q"),
   (url) => endsWithAny(url.hostname, ["baidu.com"]) && url.pathname === "/s" && hasParam(url, "wd"),
   (url) => endsWithAny(url.hostname, ["qwant.com"]) && url.pathname === "/" && hasParam(url, "q"),
+  (url) => endsWithAny(url.hostname, ["mojeek.com"]) && url.pathname === "/search" && hasParam(url, "q"),
+  (url) => url.hostname === "metager.org" && url.pathname === "/" && hasParam(url, "eingabe"),
+  (url) => url.hostname === "search.naver.com" && url.pathname === "/search.naver" && hasParam(url, "query"),
+  (url) => url.hostname === "search.seznam.cz" && url.pathname === "/" && hasParam(url, "q"),
 ];
 
 export function isSearchURL(rawURL) {
