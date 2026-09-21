@@ -33,6 +33,9 @@ const positives = [
   "https://metager.org/?eingabe=privacy",
   "https://search.naver.com/search.naver?query=hangul",
   "https://search.seznam.cz/?q=prague",
+  "https://www.sogou.com/web?query=browser",
+  "https://search.daum.net/search?q=browser",
+  "https://yep.com/web?q=independent",
 ];
 
 const negatives = [
@@ -54,6 +57,9 @@ const negatives = [
   "https://metager.org/meta/meta.ger3",
   "https://www.naver.com/search.naver?query=nope",
   "https://search.seznam.cz/obrazky?q=prague",
+  "https://www.sogou.com/?query=browser",
+  "https://search.daum.net/search?w=tot",
+  "https://yep.com/?q=independent",
   "https://example.com/?redirect=google.com/search?q=nope",
   "not a url",
   "",
