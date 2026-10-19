@@ -21,6 +21,13 @@ A Chrome extension that closes all search engine tabs with one click (or `Ctrl+S
 - AOL
 - Baidu
 - Qwant
+- Mojeek
+- MetaGer
+- Naver
+- Seznam
+- Sogou
+- Daum
+- Yep
 
 ## Features
 
