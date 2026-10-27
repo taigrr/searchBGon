@@ -18,6 +18,7 @@ const positives = [
   "https://kagi.com/search?q=go",
   "https://yandex.com/search/?text=browser",
   "https://yandex.ru/search/?text=browser",
+  "https://yandex.ru/search?text=browser",
   "https://yandex.com.tr/search/?text=browser",
   "https://ya.ru/search/?text=browser",
   "https://www.perplexity.ai/search?q=test",
@@ -40,6 +41,9 @@ const positives = [
 
 const negatives = [
   "https://www.google.com/",
+  "https://yandex.ru/searching?text=keep",
+  "https://yandex.com/search-history?text=keep",
+  "https://ya.ru/search/settings?text=keep",
   "https://googleusercontent.com/search?q=openclaw",
   "https://news.google.com/search?q=openclaw",
   "https://google.evil.com/search?q=openclaw",
