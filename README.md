@@ -33,6 +33,7 @@ A Chrome extension that closes all search engine tabs with one click (or `Ctrl+S
 
 - **One-click cleanup** — click the icon or press `Ctrl+Shift+Z` to close all search tabs
 - **Smarter URL matching** — uses parsed URLs instead of loose substring checks, which reduces false positives and picks up localized Google domains like `google.co.uk`
+- **Navigation-aware cleanup** — matches pending destinations so tabs navigating away from search stay open
 - **Badge counter** — shows the number of open search tabs on the extension icon
 - **Lightweight** — no permissions beyond `tabs`, no background overhead
 

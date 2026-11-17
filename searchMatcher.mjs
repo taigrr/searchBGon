@@ -86,5 +86,6 @@ export function isSearchURL(rawURL) {
 }
 
 export function isSearchTab(tab) {
-  return Boolean(tab?.url) && isSearchURL(tab.url);
+  // Prefer the destination while navigating, not the page being left behind.
+  return isSearchURL(tab?.pendingUrl || tab?.url);
 }

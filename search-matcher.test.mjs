@@ -83,4 +83,21 @@ assert.equal(isSearchTab({ url: "https://www.google.com/" }), false, "non-search
 assert.equal(isSearchTab({}), false, "tab without url should not match");
 assert.equal(isSearchTab(null), false, "missing tab should not match");
 
+// A pending navigation is the destination the user intends to keep or close.
+assert.equal(isSearchTab({
+  url: "https://www.google.com/search?q=openclaw",
+  pendingUrl: "https://example.com/article",
+}), false, "tab navigating away from search should stay open");
+assert.equal(isSearchTab({
+  url: "https://example.com/",
+  pendingUrl: "https://www.google.com/search?q=openclaw",
+}), true, "tab navigating to search should match");
+assert.equal(isSearchTab({
+  pendingUrl: "https://www.google.com/search?q=openclaw",
+}), true, "new tab with only a pending search URL should match");
+assert.equal(isSearchTab({
+  url: "https://www.google.com/search?q=openclaw",
+  pendingUrl: "",
+}), true, "empty pending URL should fall back to committed URL");
+
 console.log(`validated ${positives.length} positive and ${negatives.length} negative search URL cases`);
